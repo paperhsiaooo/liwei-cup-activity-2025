@@ -1,11 +1,9 @@
 import './index.css'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 import GlobalComponents from '@/components/global-components'
 import { SITE_URL } from '@/constants/site'
-import { AppProvider } from '@/provider'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -198,13 +196,9 @@ function RootLayout({ children }) {
       <body
         className={`${notoSansTC.className} ${anton.className} ${antonio.className}`}
       >
-        <NuqsAdapter>
-          <AppProvider>
-            <PostHogProvider>
-              <GlobalComponents>{children}</GlobalComponents>
-            </PostHogProvider>
-          </AppProvider>
-        </NuqsAdapter>
+        <PostHogProvider>
+          <GlobalComponents>{children}</GlobalComponents>
+        </PostHogProvider>
         {process.env.NODE_ENV === 'production' &&
         process.env.NEXT_PUBLIC_GA_ID ? (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />

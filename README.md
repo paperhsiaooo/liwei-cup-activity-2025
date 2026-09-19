@@ -4,9 +4,6 @@
 **2025 力維盃 × リキイ 盃排球錦標賽**活動官網。整站為**單頁 Landing
 Page**，全靜態預渲染後以 OpenNext 部署到 Cloudflare Workers。
 
-> 商品、購物車、結帳與金流等電商功能已移出本專案，改由同層的
-> `../liwei-cup-e-commerce` 獨立維運。
-
 ## 亮點功能
 
 - **單頁敘事式首頁**：主視覺、倒數計時、標語、賽事回憶、場地資訊、應戰宣言牆、Spotify 播放清單與 Q&A 一頁到底。
@@ -96,7 +93,7 @@ Page**，全靜態預渲染後以 OpenNext 部署到 Cloudflare Workers。
 ```
 ├── src
 │   ├── app
-│   │   ├── layout.jsx        # 字型、metadata、JSON-LD、Provider、GA
+│   │   ├── layout.jsx        # 字型、metadata、JSON-LD、PostHog、GA
 │   │   ├── index.css         # Tailwind v4 @theme 與共用 class
 │   │   ├── (index)/page.jsx  # 首頁（force-static）
 │   │   ├── robots.js         # robots.txt
@@ -104,7 +101,7 @@ Page**，全靜態預渲染後以 OpenNext 部署到 Cloudflare Workers。
 │   ├── sections/root         # 首頁區塊：main / slogan / memory / address /
 │   │                         #   declarations / music / qa / footer
 │   ├── components            # shadcn/ui、全域元件、Confetti、Spotify embed
-│   ├── provider              # React Query、PostHog Provider
+│   ├── provider              # PostHogProvider
 │   ├── store                 # Zustand（dialog、confetti）
 │   ├── constants             # SITE_URL、CDN base 與版號、cache key
 │   └── utils / lib           # 陣列、圖片工具、cn()
@@ -181,5 +178,4 @@ yarn cf:deploy    # 打包並 wrangler deploy
 
 ## 其他備註
 
-- React Query Provider 與 `NuqsAdapter` 仍掛在 Provider 樹上，但目前已無使用者。
 - 現階段語系僅繁體中文；若需多語系可再導入 Next.js i18n。

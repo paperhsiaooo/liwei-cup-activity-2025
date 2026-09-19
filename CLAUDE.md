@@ -34,7 +34,7 @@ npx jest src/sections/root/qa/components/__tests__/qa-item.test.jsx
 ```
 src/
 ├── app/
-│   ├── layout.jsx            # 根 Layout：字型、metadata、JSON-LD、Provider 包裝、GA
+│   ├── layout.jsx            # 根 Layout：字型、metadata、JSON-LD、PostHog、GA
 │   ├── index.css             # Tailwind v4 @theme（色票、字型、1440 breakpoint）+ 共用 class
 │   ├── (index)/page.jsx      # 首頁（force-static）
 │   ├── robots.js             # SEO robots（force-static）
@@ -61,7 +61,7 @@ src/
 │   ├── confetti-view.jsx     # 紙花動畫
 │   └── spotify-embed.jsx
 │
-├── provider/                 # AppProvider → ReactQueryProvider；PostHogProvider
+├── provider/                 # PostHogProvider（唯一的 provider）
 ├── store/                    # Zustand：dialog-context、confetti-context
 ├── constants/                # site（SITE_URL）、url（CDN base）、version（CDN 版號）、cache-key
 ├── config/constants.js       # ROLE
@@ -185,7 +185,5 @@ yarn cf:deploy   # build + wrangler deploy
 
 ## 已知待整理
 
-- `provider/react-query-provider` 與 `NuqsAdapter` 仍掛著，但已無任何 `useQuery`
-  / `useQueryState` 使用者；要拔掉需連同 provider 檔案與 `layout.jsx` 一起改
 - `docs/` 內多數文件（cart / checkout / products /
   MUI 遷移）描述的是已移出的電商功能，僅作歷史參考
