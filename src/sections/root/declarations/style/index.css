@@ -1,7 +1,3 @@
-.swiper-slide {
-  width: 282px;
-}
-
 /* 跑馬燈動畫 */
 @keyframes marquee-left {
   0% {
