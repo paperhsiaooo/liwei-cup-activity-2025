@@ -85,7 +85,7 @@ function Memory({ className }) {
         <div className="aspect-[617/1002] w-[150px] absolute z-0 left-0 top-[266px] 1440:top-[716px] 1440:w-[441px] a14">
           <Image
             src="/images/picture/07.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={617}
             height={1002}
@@ -95,7 +95,7 @@ function Memory({ className }) {
         <div className="aspect-square w-[81px] absolute z-0 left-[190px] top-[450px] 1440:w-[233px] 1440:left-[698px] 1440:top-[990px]">
           <Image
             src="/images/picture/08.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={1504}
             height={1504}
@@ -105,7 +105,7 @@ function Memory({ className }) {
         <div className="aspect-[1359/1939] w-[73px] absolute z-0 left-[290px] top-[512px] 1440:w-[252px] 1440:left-auto 1440:right-0 1440:top-[1300px]">
           <Image
             src="/images/picture/09.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={1359}
             height={1939}
@@ -115,7 +115,7 @@ function Memory({ className }) {
         <div className="aspect-[2039/1023] w-[275px] absolute z-0 left-1.5 top-[750px] 1440:w-[946px] 1440:left-0 1440:top-[1835px]">
           <Image
             src="/images/picture/10.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={2039}
             height={1023}
@@ -125,7 +125,7 @@ function Memory({ className }) {
         <div className="aspect-[2192/1536] w-[218px] absolute z-10 left-[64px] top-[980px] 1440:w-[684px] 1440:left-[460px] 1440:top-[2550px]">
           <Image
             src="/images/picture/11.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={2192}
             height={1536}
@@ -135,7 +135,7 @@ function Memory({ className }) {
         <div className="aspect-[1431/1850] w-[89px] absolute z-10 left-[264px] top-[1100px] 1440:w-[278px] 1440:left-[780px] 1440:top-[3125px]">
           <Image
             src="/images/picture/12.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={1431}
             height={1850}
@@ -145,7 +145,7 @@ function Memory({ className }) {
         <div className="aspect-square w-[110px] absolute z-0 left-[128px] top-[1160px] 1440:w-[233px] 1440:left-[160px] 1440:top-[2450px]">
           <Image
             src="/images/picture/13.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={864}
             height={864}
@@ -156,7 +156,7 @@ function Memory({ className }) {
         <div className="aspect-[1316/1416] hidden absolute z-10 1440:block 1440:w-[290px] 1440:left-[1020px] 1440:top-[2180px]">
           <Image
             src="/images/picture/14.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={1316}
             height={1416}
@@ -166,7 +166,7 @@ function Memory({ className }) {
         <div className="aspect-[722/1101] hidden absolute z-10 1440:block 1440:w-[179px] 1440:right-0 1440:top-[2930px]">
           <Image
             src="/images/picture/15.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={722}
             height={1101}
@@ -176,7 +176,7 @@ function Memory({ className }) {
         <div className="aspect-[1464/961] hidden absolute z-10 1440:block 1440:w-[293px] 1440:left-[136px] 1440:top-[3180px]">
           <Image
             src="/images/picture/05.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={1464}
             height={961}
@@ -186,7 +186,7 @@ function Memory({ className }) {
         <div className="aspect-[2730/1400] hidden absolute z-0 1440:block 1440:w-[716px] 1440:left-[240px] 1440:top-[3298px]">
           <Image
             src="/images/picture/03.webp"
-            alt="main-bg"
+            alt="2025 力維盃排球賽回憶照片"
             className="object-cover w-full"
             width={2730}
             height={1400}

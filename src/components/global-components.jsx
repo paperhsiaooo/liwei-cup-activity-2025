@@ -3,7 +3,6 @@
 import { Toaster } from 'react-hot-toast'
 
 import { Footer } from '@/sections/root/footer'
-import { Header } from '@/sections/root/header'
 import useDialogContext from '@/store/dialog-context'
 
 import CustomDialogView from './common/custom-dialog/custom-dialog-view'
@@ -28,7 +27,6 @@ export default function GlobalComponents({ children }) {
           duration: 3000,
         }}
       />
-      <Header />
       <CustomDialogView
         title={'機會的列車，只鳴笛一次'}
         description={

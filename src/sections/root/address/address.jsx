@@ -10,7 +10,7 @@ function Address() {
         <div className="absolute top-[120px] left-7 w-[157px] aspect-[1464/961] 1440:hidden">
           <Image
             src="/images/picture/05.webp"
-            alt="picture-05"
+            alt="2025 力維盃排球賽現場照片"
             width={1464}
             height={961}
           />
@@ -19,7 +19,7 @@ function Address() {
         <div className="absolute z-10 top-[150px] right-7 w-[145px] aspect-[1469/1753] 1440:w-[237px] 1440:top-[250px] 1440:left-[1028px]">
           <Image
             src="/images/picture/04.webp"
-            alt="picture-04"
+            alt="2025 力維盃排球賽現場照片"
             width={1469}
             height={1753}
           />
@@ -28,7 +28,7 @@ function Address() {
         <div className="absolute top-[266px] left-7 w-[277px] aspect-[2730/1400] 1440:hidden">
           <Image
             src="/images/picture/03.webp"
-            alt="picture-04"
+            alt="2025 力維盃排球賽現場照片"
             width={2730}
             height={1400}
           />

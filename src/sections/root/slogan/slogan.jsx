@@ -25,7 +25,7 @@ function Slogan({ className }) {
         <div className="absolute top-[140px] left-0 w-[90%] aspect-[1738/993] 1440:w-[76%] 1440:left-auto 1440:right-0 1440:top-auto 1440:-bottom-[200px]">
           <Image
             src="/images/picture/02.webp"
-            alt="slogan"
+            alt="2025 力維盃排球賽精彩回憶"
             width={1738}
             height={993}
             className="w-full"

@@ -1,20 +1,20 @@
 import './index.css'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { headers } from 'next/headers'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 import GlobalComponents from '@/components/global-components'
+import { SITE_URL } from '@/constants/site'
 import { AppProvider } from '@/provider'
 
 export const metadata = {
-  metadataBase: new URL('https://liwei-cup.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'リキイ 盃錦標賽',
-    template: '%s | リキイ 盃錦標賽',
+    default: '力維盃 × リキイ 盃 排球錦標賽 2025',
+    template: '%s | 力維盃 × リキイ 盃 排球錦標賽 2025',
   },
   description:
-    '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。這不只是排球賽，更是一場關於熱血、友情與信念的旅程。每一次奔跑與吶喊，都將成為日後回望時，最難忘的光影殘影。',
+    '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
   keywords: [
     '排球',
     '錦標賽',
@@ -37,11 +37,11 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_TW',
-    url: 'https://liwei-cup.com',
-    siteName: 'リキイ 盃錦標賽',
-    title: 'リキイ 盃錦標賽',
+    url: SITE_URL,
+    siteName: '力維盃 × リキイ 盃 排球錦標賽 2025',
+    title: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。這不只是排球賽，更是一場關於熱血、友情與信念的旅程。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     images: [
       {
         url: '/opengraph-image.jpg',
@@ -53,14 +53,14 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'リキイ 盃錦標賽',
+    title: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     images: ['/opengraph-image.jpg'],
     creator: '@paperhsiaooo',
   },
   alternates: {
-    canonical: 'https://liwei-cup.com',
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -113,17 +113,14 @@ const antonio = Antonio({
   variable: '--font-antonio',
 })
 
-async function RootLayout({ children }) {
-  const headersList = await headers()
-  const nonce = headersList.get('x-nonce') || undefined
-
+function RootLayout({ children }) {
   // Structured Data (JSON-LD)
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'リキイ 盃籌備團隊',
-    url: 'https://liwei-cup.com',
-    logo: 'https://liwei-cup.com/social-media/logo_main.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/social-media/logo_main.webp`,
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'support@liwei-cup.com',
@@ -137,9 +134,9 @@ async function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'リキイ 盃錦標賽',
-    url: 'https://liwei-cup.com',
+    url: SITE_URL,
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     inLanguage: 'zh-TW',
     publisher: {
       '@type': 'Organization',
@@ -150,14 +147,14 @@ async function RootLayout({ children }) {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
-    name: 'リキイ 盃錦標賽',
+    name: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
       'リキイ 盃排球錦標賽，一場關於熱血、友情與信念的排球賽事。每一次奔跑與吶喊，都將成為最難忘的回憶。',
-    url: 'https://liwei-cup.com',
-    image: 'https://liwei-cup.com/opengraph-image.jpg',
+    url: SITE_URL,
+    image: `${SITE_URL}/opengraph-image.jpg`,
     startDate: '2025-11-15',
     endDate: '2025-11-15',
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus: 'https://schema.org/EventCompleted',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -173,7 +170,7 @@ async function RootLayout({ children }) {
     organizer: {
       '@type': 'Organization',
       name: 'リキイ 盃籌備團隊',
-      url: 'https://liwei-cup.com',
+      url: SITE_URL,
     },
     sport: '排球',
   }
@@ -186,21 +183,18 @@ async function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
-          nonce={nonce}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
           }}
-          nonce={nonce}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(eventSchema),
           }}
-          nonce={nonce}
         />
       </head>
       <body
@@ -215,7 +209,7 @@ async function RootLayout({ children }) {
         </NuqsAdapter>
         {process.env.NODE_ENV === 'production' &&
         process.env.NEXT_PUBLIC_GA_ID ? (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} nonce={nonce} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         ) : null}
       </body>
     </html>

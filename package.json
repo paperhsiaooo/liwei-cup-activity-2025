@@ -2,6 +2,7 @@
   "name": "liwei-cup-nextjs",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "next dev",
     "clean": "rm -rf .next node_modules",
@@ -11,7 +12,10 @@
     "test": "jest --watch",
     "test:playwright-ct": "playwright test -c playwright-ct.config.js",
     "test:ci": "jest --ci --coverage",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -54,6 +58,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.19.0",
+    "wrangler": "^4.20.0",
     "@playwright/experimental-ct-react": "^1.50.1",
     "@playwright/test": "^1.50.1",
     "@tailwindcss/postcss": "^4",

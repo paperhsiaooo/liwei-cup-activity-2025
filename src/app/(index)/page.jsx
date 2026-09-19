@@ -2,7 +2,6 @@ import ClientOnlyView from '@/components/common/client-only/client-only-view'
 import ConfettiView from '@/components/confetti-view'
 import { Address } from '@/sections/root/address'
 import { Declaration } from '@/sections/root/declarations'
-import { InviteCard } from '@/sections/root/inviteCard'
 import { Main } from '@/sections/root/main'
 import { Memory } from '@/sections/root/memory'
 import { Qa } from '@/sections/root/qa'
@@ -21,7 +20,6 @@ export default function Root() {
       <Memory className="relative z-10" />
       <Address />
       <Declaration />
-      <InviteCard />
       <Qa />
     </main>
   )

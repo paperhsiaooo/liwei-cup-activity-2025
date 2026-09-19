@@ -21,7 +21,7 @@ function CardContent({
         <div className="relative w-[90px] aspect-square">
           <Image
             src={`${URL.BattleListCDN}${VERSION.AvatarCDN}/avatar/${no}.png`}
-            alt="avatar"
+            alt={`${name} 選手頭像`}
             width={1024}
             height={1024}
           />
