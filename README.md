@@ -123,7 +123,7 @@ Page**，全靜態預渲染後以 OpenNext 部署到 Cloudflare Workers。
   `declaration_data.json` 與
   `DeclarationsList.json`（逾時 5 秒，失敗即讓 build 失敗），再交給 client 端
   `card-list` 以 CSS keyframes 跑馬燈呈現。
-- **Footer**：由 `layout.jsx` 直接掛在 `{children}` 之後，提供頁內錨點導覽。
+- **Footer**：由 `layout.jsx` 直接掛在 `{children}` 之後，只有版權文字。
 - **資料更新流程**：宣言內容存放於
   [`liwei-cup-static-data`](https://github.com/paperhsiaooo/liwei-cup-static-data)；更新後修改
   `src/constants/version.js` 的 CDN 版號並重新部署即可生效。
