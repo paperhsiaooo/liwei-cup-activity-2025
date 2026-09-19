@@ -182,8 +182,3 @@ yarn cf:deploy   # build + wrangler deploy
 `.env.example` 仍留有 `BASE_URL` / `NEXT_PUBLIC_BASE_URL` /
 `NEXT_PUBLIC_ECPAY_*`，皆為電商時期殘留，現行程式碼未使用（`middleware.ts` 只拿
 `BASE_URL` 組 CSP `connect-src`，留空即可）。
-
-## 已知待整理
-
-- `docs/` 內多數文件（cart / checkout / products /
-  MUI 遷移）描述的是已移出的電商功能，僅作歷史參考

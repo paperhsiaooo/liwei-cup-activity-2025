@@ -172,9 +172,9 @@ yarn cf:deploy    # 打包並 wrangler deploy
 
 - [CLAUDE.md](./CLAUDE.md) — 專案開發指南（架構、慣例、部署、SEO）
 - [SEO 優化總結](./docs/SEO-OPTIMIZATION-SUMMARY.md)
-- [AI Development Workflow](./docs/AI_DEVELOPMENT_WORKFLOW.md)
-- `docs/` 其餘文件（cart / checkout / products /
-  MUI 遷移等）描述的是已移出的電商功能，僅作歷史參考。
+- [AI Development Workflow](./docs/AI_DEVELOPMENT_WORKFLOW.md) — AI 協助開發流程
+- [測試環境設置](./docs/TESTING_SETUP.md)
+- [Toast Style Spec](./docs/toast-style-spec.md)
 
 ## 其他備註
 
