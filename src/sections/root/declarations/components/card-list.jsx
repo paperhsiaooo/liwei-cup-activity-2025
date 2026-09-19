@@ -49,39 +49,36 @@ function CardList({ battleDeclarations = [], declarationsOptions = [] }) {
   }
 
   // 跑馬燈動畫組件
-  const MarqueeRow = ({
-    declarations,
-    direction = 'left',
-    speed = 50,
-    isLastRow = false,
-  }) => {
+  const MarqueeRow = ({ declarations, direction = 'left', speed = 50 }) => {
     const animationClass =
       direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
 
-    // 如果是最後一行且少於 15 個，需要特殊處理
-    const repeatCount = isLastRow && declarations.length < 15 ? 4 : 3
+    // ponytail: 2 份複本 + translateX(-50%) 即可無縫循環；複本對輔助科技與爬蟲隱藏
+    const repeatCount = 2
 
     return (
       <div className="overflow-hidden whitespace-nowrap">
         <div
-          className={`inline-flex gap-4 ${animationClass}`}
+          className={`inline-flex ${animationClass}`}
           style={{
             animationDuration: `${speed}s`,
             animationTimingFunction: 'linear',
             animationIterationCount: 'infinite',
           }}
         >
-          {/* 根據行數決定重複次數，確保無縫循環 */}
           {Array.from({ length: repeatCount }, () => declarations)
             .flat()
             .map((declaration, index) => {
               const [declaration1, declaration2, declaration3] =
                 parseDeclarationData(declaration.declaration_data)
+              const copy = Math.floor(index / declarations.length)
 
               return (
                 <div
                   key={`${declaration.id}-${index}`}
-                  className="flex-shrink-0 w-[282px]"
+                  className="flex-shrink-0 w-[282px] mr-4"
+                  data-marquee-copy={copy}
+                  aria-hidden={copy > 0 || undefined}
                 >
                   <Card>
                     <CardContent

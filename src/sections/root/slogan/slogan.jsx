@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 function Slogan({ className }) {
   return (
-    <div className={cn('bg-white', className)}>
+    <div id="slogan" className={cn('bg-white', className)}>
       <div className="relative max-w-[375px] mx-auto 1440:max-w-[1440px]">
         {/* Word - 不僅要參加，更要留下 */}
         <div className="absolute top-6 left-9 1440:top-12 1440:left-28">
@@ -25,7 +25,7 @@ function Slogan({ className }) {
         <div className="absolute top-[140px] left-0 w-[90%] aspect-[1738/993] 1440:w-[76%] 1440:left-auto 1440:right-0 1440:top-auto 1440:-bottom-[200px]">
           <Image
             src="/images/picture/02.webp"
-            alt="slogan"
+            alt="2025 力維盃排球賽精彩回憶"
             width={1738}
             height={993}
             className="w-full"

@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# cloudflare / opennext
+/.open-next/
+/.wrangler/
+
 # production
 /build
 
@@ -41,4 +45,3 @@ yarn-error.log*
 next-env.d.ts
 
 test-results/
-tests/

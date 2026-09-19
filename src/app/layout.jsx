@@ -1,19 +1,18 @@
 import './index.css'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { headers } from 'next/headers'
 
-import GlobalComponents from '@/components/global-components'
-import { AppProvider } from '@/provider'
+import { SITE_URL } from '@/constants/site'
+import { Footer } from '@/sections/root/footer'
 
 export const metadata = {
-  metadataBase: new URL('https://liwei-cup.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'リキイ 盃錦標賽',
-    template: '%s | リキイ 盃錦標賽',
+    default: '力維盃 × リキイ 盃 排球錦標賽 2025',
+    template: '%s | 力維盃 × リキイ 盃 排球錦標賽 2025',
   },
   description:
-    '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。這不只是排球賽，更是一場關於熱血、友情與信念的旅程。每一次奔跑與吶喊，都將成為日後回望時，最難忘的光影殘影。',
+    '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
   keywords: [
     '排球',
     '錦標賽',
@@ -22,7 +21,8 @@ export const metadata = {
     'リキイ 盃',
     '排球賽',
     '排球比賽',
-    '台中排球',
+    '板橋排球',
+    '新北排球比賽',
     '排球活動',
   ],
   authors: [{ name: 'リキイ 盃籌備團隊' }],
@@ -36,11 +36,11 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_TW',
-    url: 'https://liwei-cup.com',
-    siteName: 'リキイ 盃錦標賽',
-    title: 'リキイ 盃錦標賽',
+    url: SITE_URL,
+    siteName: '力維盃 × リキイ 盃 排球錦標賽 2025',
+    title: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。這不只是排球賽，更是一場關於熱血、友情與信念的旅程。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     images: [
       {
         url: '/opengraph-image.jpg',
@@ -52,14 +52,11 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'リキイ 盃錦標賽',
+    title: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     images: ['/opengraph-image.jpg'],
     creator: '@paperhsiaooo',
-  },
-  alternates: {
-    canonical: 'https://liwei-cup.com',
   },
   robots: {
     index: true,
@@ -79,17 +76,11 @@ export const metadata = {
 }
 
 // import noto sans tc font
-import { Anton, Antonio, Noto_Sans_JP, Noto_Sans_TC } from 'next/font/google'
+import { Anton, Antonio, Noto_Sans_TC } from 'next/font/google'
 
 import PostHogProvider from '@/provider/post-hog-provider'
 
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  display: 'swap',
-  variable: '--font-noto-sans-jp',
-})
-
+// ponytail: 站上日文只有假名，Noto Sans TC 已涵蓋；移除 Noto Sans JP 省下約一半字型切片下載
 const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
@@ -112,17 +103,14 @@ const antonio = Antonio({
   variable: '--font-antonio',
 })
 
-async function RootLayout({ children }) {
-  const headersList = await headers()
-  const nonce = headersList.get('x-nonce') || undefined
-
+function RootLayout({ children }) {
   // Structured Data (JSON-LD)
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'リキイ 盃籌備團隊',
-    url: 'https://liwei-cup.com',
-    logo: 'https://liwei-cup.com/icon.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/social-media/logo_main.webp`,
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'support@liwei-cup.com',
@@ -136,9 +124,9 @@ async function RootLayout({ children }) {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'リキイ 盃錦標賽',
-    url: 'https://liwei-cup.com',
+    url: SITE_URL,
     description:
-      '聲音與氣味會淡去，唯有拚搏的樣子留存在最後。リキイ 盃，用一場比賽，把青春刻進記憶深處。',
+      '力維盃排球錦標賽，用一場比賽把青春刻進記憶。集結台灣最熱血的排球魂，2025 リキイ 盃，來留下屬於你的那一頁。',
     inLanguage: 'zh-TW',
     publisher: {
       '@type': 'Organization',
@@ -149,30 +137,35 @@ async function RootLayout({ children }) {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
-    name: 'リキイ 盃錦標賽',
+    name: '力維盃 × リキイ 盃 排球錦標賽 2025',
     description:
       'リキイ 盃排球錦標賽，一場關於熱血、友情與信念的排球賽事。每一次奔跑與吶喊，都將成為最難忘的回憶。',
-    url: 'https://liwei-cup.com',
-    image: 'https://liwei-cup.com/opengraph-image.jpg',
+    url: SITE_URL,
+    image: [
+      `${SITE_URL}/opengraph-image.jpg`,
+      `${SITE_URL}/images/picture/03.webp`,
+      `${SITE_URL}/images/picture/04.webp`,
+    ],
     startDate: '2025-11-15',
     endDate: '2025-11-15',
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus: 'https://schema.org/EventCompleted',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
-      name: '新北市板橋區',
+      name: '三米線 板橋僑中分館',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: '新北市',
-        addressRegion: '板橋區',
-        addressStreet: '僑中一街 124 巷 27-5 號',
+        streetAddress: '僑中一街 124 巷 27-5 號',
+        addressLocality: '板橋區',
+        addressRegion: '新北市',
+        postalCode: '220',
         addressCountry: 'TW',
       },
     },
     organizer: {
       '@type': 'Organization',
       name: 'リキイ 盃籌備團隊',
-      url: 'https://liwei-cup.com',
+      url: SITE_URL,
     },
     sport: '排球',
   }
@@ -180,39 +173,36 @@ async function RootLayout({ children }) {
   return (
     <html lang="zh-TW">
       <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
-          nonce={nonce}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema),
           }}
-          nonce={nonce}
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(eventSchema),
           }}
-          nonce={nonce}
         />
       </head>
       <body
-        className={`${notoSansTC.className} ${notoSansJP.className} ${anton.className} ${antonio.className}`}
+        className={`${notoSansTC.className} ${anton.className} ${antonio.className}`}
       >
-        <AppProvider>
-          <PostHogProvider>
-            <GlobalComponents>{children}</GlobalComponents>
-          </PostHogProvider>
-        </AppProvider>
+        <PostHogProvider>
+          {children}
+          <Footer />
+        </PostHogProvider>
         {process.env.NODE_ENV === 'production' &&
         process.env.NEXT_PUBLIC_GA_ID ? (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} nonce={nonce} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         ) : null}
       </body>
     </html>

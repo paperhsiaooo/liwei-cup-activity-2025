@@ -1,28 +1,19 @@
-const Footer = ({
-  copyright = '© 2025 #リキイ盃 All rights reserved.',
-  bottomLinks = [
-    { text: '服務條款', url: '/terms' },
-    { text: '隱私權政策', url: '/privacy' },
-    { text: '消費者權益', url: '/consumer-rights' },
-    { text: '退換貨政策', url: '/return-policy' },
-  ],
-}) => {
+const Footer = ({ copyright = '© 2025 #リキイ盃 All rights reserved.' }) => {
   return (
     <section className="bg-[#F9F9F9]">
-      <div className="max-w-[350px] 1440:max-w-[1440px] mx-auto">
+      <div className="wrapper">
         <footer>
-          <div className="text-muted-foreground flex flex-col justify-between gap-8 border-t px-4 py-4 text-sm font-medium 1440:flex-row 1440:items-center 1440:py-8 1440:px-0">
+          <nav
+            aria-label="頁面區塊"
+            className="text-blue-primary flex flex-wrap gap-x-4 gap-y-2 py-4 text-sm font-bold"
+          >
+            <a href="#memory">賽事回憶</a>
+            <a href="#address">活動地點</a>
+            <a href="#declaration">應戰宣言</a>
+            <a href="#qa">常見問題</a>
+          </nav>
+          <div className="text-muted-foreground flex border-t py-4 text-sm font-medium 1440:py-8">
             <p className="font-noto-sans-jp">{copyright}</p>
-            <ul className="flex flex-col gap-4 1440:flex-row">
-              {bottomLinks.map((link, linkIdx) => (
-                <li
-                  key={linkIdx}
-                  className="hover:text-primary underline font-noto-sans-tc"
-                >
-                  <a href={link.url}>{link.text}</a>
-                </li>
-              ))}
-            </ul>
           </div>
         </footer>
       </div>

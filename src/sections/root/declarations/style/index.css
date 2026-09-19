@@ -1,39 +1,16 @@
-.swiper-slide {
-  width: 282px;
-}
-
 /* 跑馬燈動畫 */
 @keyframes marquee-left {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.33%);
+    transform: translateX(-50%);
   }
 }
 
 @keyframes marquee-right {
   0% {
-    transform: translateX(-33.33%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* 針對不同行數的動畫變體 */
-@keyframes marquee-left-long {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-20%);
-  }
-}
-
-@keyframes marquee-right-long {
-  0% {
-    transform: translateX(-20%);
+    transform: translateX(-50%);
   }
   100% {
     transform: translateX(0);

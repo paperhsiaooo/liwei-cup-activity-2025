@@ -1,65 +1,36 @@
-export const dynamic = 'force-dynamic'
-
-import { CACHE_KEY } from '@/constants/cache-key'
 import { URL } from '@/constants/url'
 import { VERSION } from '@/constants/version'
 
 import CardList from './card-list'
 
-const getUserBattleDeclarations = async () => {
-  try {
-    const url = `${URL.BattleListCDN}${VERSION.MemberDeclarationsCDN}/website/declaration_data.json`
-    const res = await fetch(url, {
-      next: {
-        revalidate: 60 * 5,
-        tags: [CACHE_KEY.BATTLE_DECLARATIONS],
-      },
-    })
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch battle declarations')
-    }
-
-    const data = await res.json()
-    return data
-  } catch (error) {
-    console.error('>>> [getBattleDeclarations] error: ', error)
-    return []
+// ponytail: 頁面 force-static，資料在建置時固定；抓取失敗直接讓建置失敗，避免上線一個空的宣言區
+const fetchJson = async url => {
+  const res = await fetch(url, {
+    cache: 'force-cache',
+    signal: AbortSignal.timeout(5000),
+  })
+  if (!res.ok) {
+    throw new Error(`Fetch failed ${res.status}: ${url}`)
   }
-}
-
-const getDeclarationsOptions = async () => {
-  try {
-    const url = `${URL.BattleListCDN}${VERSION.BattleListCDN}/DeclarationsList.json`
-    const res = await fetch(url, {
-      next: {
-        revalidate: 60 * 60 * 24,
-        tags: [CACHE_KEY.DECLARATIONS_OPTIONS],
-      },
-    })
-
-    const data = await res.json()
-    return data
-  } catch (error) {
-    console.error('>>> [getDeclarationsOptions] error: ', error)
-    return []
-  }
+  return res.json()
 }
 
 async function CardContainer() {
-  try {
-    const battleDeclarations = await getUserBattleDeclarations()
-    const declarationsOptions = await getDeclarationsOptions()
+  const [battleDeclarations, declarationsOptions] = await Promise.all([
+    fetchJson(
+      `${URL.BattleListCDN}${VERSION.MemberDeclarationsCDN}/website/declaration_data.json`,
+    ),
+    fetchJson(
+      `${URL.BattleListCDN}${VERSION.BattleListCDN}/DeclarationsList.json`,
+    ),
+  ])
 
-    return (
-      <CardList
-        battleDeclarations={battleDeclarations}
-        declarationsOptions={declarationsOptions}
-      />
-    )
-  } catch {
-    return <div>Card Container</div>
-  }
+  return (
+    <CardList
+      battleDeclarations={battleDeclarations}
+      declarationsOptions={declarationsOptions}
+    />
+  )
 }
 
 export default CardContainer

@@ -1,13 +1,11 @@
 'use client'
 
-import DOMPurify from 'isomorphic-dompurify'
 import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
 function QaItem({ question, answer, defaultOpen = false }) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
-
   const toggleOpen = () => {
     setIsOpen(!isOpen)
   }
@@ -60,7 +58,8 @@ function QaItem({ question, answer, defaultOpen = false }) {
       >
         <div
           className="px-4 py-4 bg-white text-blue-primary text-sm leading-relaxed 1440:text-lg"
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(answer) }}
+          // ponytail: answer 是 qa-container 寫死的文案，非使用者輸入，直接 SSR 輸出讓爬蟲看得到
+          dangerouslySetInnerHTML={{ __html: answer }}
         />
       </div>
     </div>
