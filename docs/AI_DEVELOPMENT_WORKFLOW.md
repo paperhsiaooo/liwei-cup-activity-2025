@@ -127,11 +127,9 @@ yarn build
 **常見問題與解法**：
 
 1. **環境變數缺失**
-
    - 檢查 `.env.local` 是否包含所有必要變數
 
 2. **模組解析失敗**
-
    - 檢查 import 路徑是否正確
    - 確認 `@/` alias 設定正確
    - 驗證檔案確實存在於指定位置
@@ -215,9 +213,7 @@ yarn build
 
 ## 📚 相關文件
 
-- [UI Framework Policy](../.cursor/rules/ui-framework-policy.mdc) -
-  UI 組件庫使用政策
-- [Migration from MUI](./MIGRATION_FROM_MUI.md) - Material-UI 遷移計劃
+- [CLAUDE.md](../CLAUDE.md) - 專案架構、慣例與 UI 框架政策（僅 shadcn/ui）
 
 ---
 

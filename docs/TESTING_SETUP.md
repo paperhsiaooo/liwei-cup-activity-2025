@@ -5,13 +5,13 @@
 請執行以下指令安裝測試所需的套件：
 
 ```bash
-npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event jest jest-environment-jsdom
+npm install --save-dev @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom
 ```
 
 或使用 yarn：
 
 ```bash
-yarn add -D @testing-library/react @testing-library/jest-dom @testing-library/user-event jest jest-environment-jsdom
+yarn add -D @testing-library/react @testing-library/jest-dom jest jest-environment-jsdom
 ```
 
 ## 🧪 測試指令
