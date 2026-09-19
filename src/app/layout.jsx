@@ -2,8 +2,8 @@ import './index.css'
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 
-import GlobalComponents from '@/components/global-components'
 import { SITE_URL } from '@/constants/site'
+import { Footer } from '@/sections/root/footer'
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -197,7 +197,8 @@ function RootLayout({ children }) {
         className={`${notoSansTC.className} ${anton.className} ${antonio.className}`}
       >
         <PostHogProvider>
-          <GlobalComponents>{children}</GlobalComponents>
+          {children}
+          <Footer />
         </PostHogProvider>
         {process.env.NODE_ENV === 'production' &&
         process.env.NEXT_PUBLIC_GA_ID ? (

@@ -17,25 +17,6 @@
   }
 }
 
-/* 針對不同行數的動畫變體 */
-@keyframes marquee-left-long {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-20%);
-  }
-}
-
-@keyframes marquee-right-long {
-  0% {
-    transform: translateX(-20%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .animate-marquee-left {
   animation-name: marquee-left;
 }
