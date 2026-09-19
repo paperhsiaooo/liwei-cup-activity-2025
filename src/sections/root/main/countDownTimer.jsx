@@ -17,7 +17,7 @@ function CountDownTimer({ type = 'primary' | 'secondary' }) {
   if (isExpired) {
     return (
       <div className="relative z-10">
-        <h3
+        <h2
           className={cn(
             'text-[30px] font-black font-noto-sans-tc text-center 1440:text-[100px]',
             type === 'primary' && 'text-white',
@@ -25,7 +25,7 @@ function CountDownTimer({ type = 'primary' | 'secondary' }) {
           )}
         >
           一球，打穿你防線
-        </h3>
+        </h2>
       </div>
     )
   }

@@ -6,6 +6,7 @@ import { InfoDate, InfoDestination, InfoDistance, InfoDuration } from './'
 function Address() {
   return (
     <section id="address" className="root bg-orange-primary">
+      <h2 className="sr-only">活動地點與時間</h2>
       <div className="relative pt-[500px] pb-5 max-w-[375px] mx-auto 1440:max-w-[1440px] 1440:pt-[630px] 1440:pb-[300px]">
         <div className="absolute top-[120px] left-7 w-[157px] aspect-[1464/961] 1440:hidden">
           <Image
@@ -105,7 +106,7 @@ function Address() {
             <p className="text-white text-[38px] font-noto-sans-tc font-bold leading-tight pt-[18px]">
               新北市板橋區
               <br />
-              橋中一街 124 巷
+              僑中一街 124 巷
               <br />
               27-5 號
             </p>

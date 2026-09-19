@@ -12,7 +12,8 @@
 
   --font-anton: 'Anton', sans-serif;
   --font-antonio: 'Antonio', sans-serif;
-  --font-noto-sans-jp: 'Noto Sans JP', sans-serif;
+  /* ponytail: 假名由 Noto Sans TC 提供，jp 類別保留但指向同一字型 */
+  --font-noto-sans-jp: 'Noto Sans TC', sans-serif;
   --font-noto-sans-tc: 'Noto Sans TC', sans-serif;
 
   --breakpoint-1440: 1440px;

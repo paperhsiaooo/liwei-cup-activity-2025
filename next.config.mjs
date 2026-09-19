@@ -21,6 +21,27 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['react-icons'],
   },
+  // ponytail: CSP 先不上，Spotify/jsDelivr/PostHog/GA 來源多，需另外用 Report-Only 觀察
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains',
+          },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 export default nextConfig

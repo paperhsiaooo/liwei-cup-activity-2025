@@ -23,7 +23,8 @@ export const metadata = {
     'リキイ 盃',
     '排球賽',
     '排球比賽',
-    '台中排球',
+    '板橋排球',
+    '新北排球比賽',
     '排球活動',
   ],
   authors: [{ name: 'リキイ 盃籌備團隊' }],
@@ -59,9 +60,6 @@ export const metadata = {
     images: ['/opengraph-image.jpg'],
     creator: '@paperhsiaooo',
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
   robots: {
     index: true,
     follow: true,
@@ -80,17 +78,11 @@ export const metadata = {
 }
 
 // import noto sans tc font
-import { Anton, Antonio, Noto_Sans_JP, Noto_Sans_TC } from 'next/font/google'
+import { Anton, Antonio, Noto_Sans_TC } from 'next/font/google'
 
 import PostHogProvider from '@/provider/post-hog-provider'
 
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  display: 'swap',
-  variable: '--font-noto-sans-jp',
-})
-
+// ponytail: 站上日文只有假名，Noto Sans TC 已涵蓋；移除 Noto Sans JP 省下約一半字型切片下載
 const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
@@ -151,19 +143,24 @@ function RootLayout({ children }) {
     description:
       'リキイ 盃排球錦標賽，一場關於熱血、友情與信念的排球賽事。每一次奔跑與吶喊，都將成為最難忘的回憶。',
     url: SITE_URL,
-    image: `${SITE_URL}/opengraph-image.jpg`,
+    image: [
+      `${SITE_URL}/opengraph-image.jpg`,
+      `${SITE_URL}/images/picture/03.webp`,
+      `${SITE_URL}/images/picture/04.webp`,
+    ],
     startDate: '2025-11-15',
     endDate: '2025-11-15',
     eventStatus: 'https://schema.org/EventCompleted',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
-      name: '新北市板橋區',
+      name: '三米線 板橋僑中分館',
       address: {
         '@type': 'PostalAddress',
-        addressLocality: '新北市',
-        addressRegion: '板橋區',
-        addressStreet: '僑中一街 124 巷 27-5 號',
+        streetAddress: '僑中一街 124 巷 27-5 號',
+        addressLocality: '板橋區',
+        addressRegion: '新北市',
+        postalCode: '220',
         addressCountry: 'TW',
       },
     },
@@ -178,6 +175,7 @@ function RootLayout({ children }) {
   return (
     <html lang="zh-TW">
       <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -198,7 +196,7 @@ function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${notoSansTC.className} ${notoSansJP.className} ${anton.className} ${antonio.className}`}
+        className={`${notoSansTC.className} ${anton.className} ${antonio.className}`}
       >
         <NuqsAdapter>
           <AppProvider>

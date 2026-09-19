@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 function Memory({ className }) {
   return (
     <div id="memory" className={cn('bg-blue-primary', className)}>
+      <h2 className="sr-only">賽事回憶</h2>
       <div className="relative max-w-[375px] mx-auto w-full h-[1190px] 1440:max-w-[1440px] 1440:h-[3300px]">
         {/* On the count, every shot is the true of yourself */}
         <div className="absolute top-[150px] left-1/2 -translate-x-1/2 z-10 w-[271px] h-[82px] 1440:top-[400px] 1440:w-[1216px] 1440:h-[372px]">
