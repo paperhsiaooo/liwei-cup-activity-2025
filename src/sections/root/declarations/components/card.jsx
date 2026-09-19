@@ -30,9 +30,9 @@ function CardContent({
         {/* 內容 */}
         <div className="relative z-10 space-y-1 min-w-0 flex-1">
           <div className="flex flex-row justify-start items-end gap-x-3">
-            <h3 className="text-2xl font-bold text-blue-primary font-noto-sans-jp break-words">
+            <p className="text-2xl font-bold text-blue-primary font-noto-sans-jp break-words">
               {name}
-            </h3>
+            </p>
           </div>
           <p className="text-sm font-bold text-blue-primary font-noto-sans-jp whitespace-normal">
             我是{declaration1}、{declaration2}。<br />
